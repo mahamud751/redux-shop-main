@@ -1,5 +1,6 @@
 import { Box, Button, Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import { deepOrange } from "@mui/material/colors";
+import { styled } from "@mui/material/styles";
 import Link from "next/link";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -9,6 +10,41 @@ import Home from "../components/Home";
 import { add_item } from "../redux/actions/cartAction";
 
 const color = deepOrange[300];
+
+const BootstrapButton = styled(Button)({
+  boxShadow: "none",
+  textTransform: "none",
+  fontSize: 16,
+  padding: "10px 12px",
+  border: "1px solid",
+  lineHeight: 1.5,
+  backgroundColor: "white",
+  color: "black",
+  borderColor: "black",
+  marginTop: 10,
+
+  fontFamily: [
+    "-apple-system",
+    "BlinkMacSystemFont",
+    '"Segoe UI"',
+    "Roboto",
+    '"Helvetica Neue"',
+    "Arial",
+    "sans-serif",
+    '"Apple Color Emoji"',
+    '"Segoe UI Emoji"',
+    '"Segoe UI Symbol"',
+  ].join(","),
+  "&:hover": {
+    backgroundColor: "black",
+    borderColor: "black",
+    boxShadow: "none",
+    color: "white",
+  },
+  "&:active": {
+    boxShadow: "none",
+  },
+});
 
 export default function Index({ data }) {
   const Products = data;
@@ -38,23 +74,23 @@ export default function Index({ data }) {
           <Box sx={{ marginTop: "70px", padding: "10px" }}>
             <nav className="mt-2">
               <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <Button className="btn btn-outline-dark me-2 p-3" onClick={() => setFilter(products)}>
-                  <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+                <BootstrapButton variant="contained" onClick={() => setFilter(products)}>
+                  <Box sx={{ display: "flex", justifyContent: "space-between" }} style={{ width: "100%" }}>
                     <CardMedia
                       component="img"
                       height={500}
                       image={
-                        "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                        "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
                       }
                       alt="Paella dish"
-                      sx={{ width: "60px", height: "60px", borderRadius: "25%" }}
+                      sx={{ width: "60px", height: "60px", borderRadius: "50%" }}
                     />
-                    <Typography sx={{ fontSize: "30px" }}>All</Typography> <Typography sx={{ fontSize: "30px" }}></Typography>
+                    <Typography style={{ fontSize: "30px", textAlign: "start" }}>Fast Food</Typography> <Typography style={{ fontSize: "30px" }}></Typography>
                   </Box>
-                </Button>
+                </BootstrapButton>
 
-                <Button className="btn btn-outline-dark me-2 mt-2 p-3" onClick={() => filterProduct("fast_food")}>
-                  <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+                <BootstrapButton variant="contained" onClick={() => setFilter(products)}>
+                  <Box sx={{ display: "flex", justifyContent: "space-between" }} style={{ width: "100%" }}>
                     <CardMedia
                       component="img"
                       height={500}
@@ -66,10 +102,10 @@ export default function Index({ data }) {
                     />
                     <Typography style={{ fontSize: "30px" }}>Fast Food</Typography> <Typography style={{ fontSize: "30px" }}></Typography>
                   </Box>
-                </Button>
+                </BootstrapButton>
 
-                <Button className="btn btn-outline-dark me-2 mt-2 p-3" onClick={() => filterProduct("fruit")}>
-                  <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+                <BootstrapButton variant="contained" onClick={() => setFilter(products)}>
+                  <Box sx={{ display: "flex", justifyContent: "space-between" }} style={{ width: "100%" }}>
                     <CardMedia
                       component="img"
                       height={500}
@@ -79,12 +115,12 @@ export default function Index({ data }) {
                       alt="Paella dish"
                       sx={{ width: "60px", height: "60px", borderRadius: "50%" }}
                     />
-                    <Typography style={{ fontSize: "30px" }}>Fruits</Typography> <Typography style={{ fontSize: "30px" }}></Typography>
+                    <Typography style={{ fontSize: "30px", textAlign: "start" }}>Fruits</Typography> <Typography style={{ fontSize: "30px" }}></Typography>
                   </Box>
-                </Button>
+                </BootstrapButton>
 
-                <Button className="btn btn-outline-dark me-2 mt-2 p-3" onClick={() => filterProduct("drinks")}>
-                  <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+                <BootstrapButton variant="contained" onClick={() => setFilter(products)}>
+                  <Box sx={{ display: "flex", justifyContent: "space-between" }} style={{ width: "100%" }}>
                     <CardMedia
                       component="img"
                       height={500}
@@ -96,10 +132,10 @@ export default function Index({ data }) {
                     />
                     <Typography style={{ fontSize: "30px" }}>Drinks</Typography> <Typography style={{ fontSize: "30px" }}></Typography>
                   </Box>
-                </Button>
+                </BootstrapButton>
 
-                <Button className="btn btn-outline-dark me-2 mt-2 p-3" onClick={() => filterProduct("vegetable")}>
-                  <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+                <BootstrapButton variant="contained" onClick={() => setFilter(products)}>
+                  <Box sx={{ display: "flex", justifyContent: "space-between" }} style={{ width: "100%" }}>
                     <CardMedia
                       component="img"
                       height={500}
@@ -111,10 +147,10 @@ export default function Index({ data }) {
                     />{" "}
                     <Typography style={{ fontSize: "30px" }}>Vegetables</Typography> <Typography style={{ fontSize: "30px" }}></Typography>
                   </Box>
-                </Button>
+                </BootstrapButton>
 
-                <Button className="btn btn-outline-dark me-2 mt-2 p-3" onClick={() => filterProduct("diet")}>
-                  <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+                <BootstrapButton variant="contained" onClick={() => setFilter(products)}>
+                  <Box sx={{ display: "flex", justifyContent: "space-between" }} style={{ width: "100%" }}>
                     <CardMedia
                       component="img"
                       height={500}
@@ -126,7 +162,7 @@ export default function Index({ data }) {
                     />
                     <Typography style={{ fontSize: "30px" }}>Deit Food</Typography> <Typography style={{ fontSize: "30px" }}></Typography>
                   </Box>
-                </Button>
+                </BootstrapButton>
               </ul>
             </nav>
           </Box>
