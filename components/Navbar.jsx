@@ -66,8 +66,8 @@ const Navbar = () => {
 
   const dispatch = useDispatch();
 
-  const handleCart = (id) => {
-    dispatch(delete_cart(id));
+  const handleCart = (_id) => {
+    dispatch(delete_cart(_id));
   };
   return (
     <>
@@ -212,13 +212,13 @@ const Navbar = () => {
                     <div style={{ width: "300px" }}>
                       {getState.map((pd) => {
                         return (
-                          <div className="d-flex justify-content-between p-3" key={pd.id}>
+                          <div className="d-flex justify-content-between p-3" key={pd._id}>
                             <img src={pd.img} alt="" style={{ width: "5rem", height: "5rem" }} key={pd._id} />
                             <div>
                               <p>{pd.name}</p>
                               <p>{pd.qtn}</p>
                             </div>
-                            <DeleteIcon onClick={() => handleCart(pd.id)} />
+                            <DeleteIcon onClick={() => handleCart(pd._id)} />
                           </div>
                         );
                       })}
