@@ -85,11 +85,11 @@ export default function Index({ data }) {
                       alt="Paella dish"
                       sx={{ width: "60px", height: "60px", borderRadius: "50%" }}
                     />
-                    <Typography style={{ fontSize: "30px", textAlign: "start" }}>Fast Food</Typography> <Typography style={{ fontSize: "30px" }}></Typography>
+                    <Typography style={{ fontSize: "30px" }}>All</Typography> <Typography style={{ fontSize: "30px" }}></Typography>
                   </Box>
                 </BootstrapButton>
 
-                <BootstrapButton variant="contained" onClick={() => setFilter(products)}>
+                <BootstrapButton variant="contained" onClick={() => filterProduct("fast_food")}>
                   <Box sx={{ display: "flex", justifyContent: "space-between" }} style={{ width: "100%" }}>
                     <CardMedia
                       component="img"
@@ -104,7 +104,7 @@ export default function Index({ data }) {
                   </Box>
                 </BootstrapButton>
 
-                <BootstrapButton variant="contained" onClick={() => setFilter(products)}>
+                <BootstrapButton variant="contained" onClick={() => filterProduct("fruit")}>
                   <Box sx={{ display: "flex", justifyContent: "space-between" }} style={{ width: "100%" }}>
                     <CardMedia
                       component="img"
@@ -115,11 +115,11 @@ export default function Index({ data }) {
                       alt="Paella dish"
                       sx={{ width: "60px", height: "60px", borderRadius: "50%" }}
                     />
-                    <Typography style={{ fontSize: "30px", textAlign: "start" }}>Fruits</Typography> <Typography style={{ fontSize: "30px" }}></Typography>
+                    <Typography style={{ fontSize: "30px" }}>Fruits</Typography> <Typography style={{ fontSize: "30px" }}></Typography>
                   </Box>
                 </BootstrapButton>
 
-                <BootstrapButton variant="contained" onClick={() => setFilter(products)}>
+                <BootstrapButton variant="contained" onClick={() => filterProduct("drinks")}>
                   <Box sx={{ display: "flex", justifyContent: "space-between" }} style={{ width: "100%" }}>
                     <CardMedia
                       component="img"
@@ -134,7 +134,7 @@ export default function Index({ data }) {
                   </Box>
                 </BootstrapButton>
 
-                <BootstrapButton variant="contained" onClick={() => setFilter(products)}>
+                <BootstrapButton variant="contained" onClick={() => filterProduct("vegetable")}>
                   <Box sx={{ display: "flex", justifyContent: "space-between" }} style={{ width: "100%" }}>
                     <CardMedia
                       component="img"
@@ -149,7 +149,7 @@ export default function Index({ data }) {
                   </Box>
                 </BootstrapButton>
 
-                <BootstrapButton variant="contained" onClick={() => setFilter(products)}>
+                <BootstrapButton variant="contained" onClick={() => filterProduct("diet")}>
                   <Box sx={{ display: "flex", justifyContent: "space-between" }} style={{ width: "100%" }}>
                     <CardMedia
                       component="img"
