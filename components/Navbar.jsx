@@ -12,15 +12,25 @@ import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
+import { signOut } from "firebase/auth";
 import Link from "next/link";
 import * as React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useDispatch, useSelector } from "react-redux";
+import auth from "../firebase.init";
 import { delete_cart } from "../redux/actions/cartAction";
 
 const pages = ["Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const Navbar = () => {
+  const [user] = useAuthState(auth);
+
+  const logout = () => {
+    signOut(auth);
+
+  };
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -223,6 +233,9 @@ const Navbar = () => {
                         );
                       })}
                       <p>Total:{price}</p>
+                      <Link href={'/checkout'}>
+                        <button>Checkout</button>
+                      </Link>
                     </div>
                   ) : (
                     <div>
@@ -231,6 +244,48 @@ const Navbar = () => {
                     </div>
                   )}
                 </Menu>
+              </Box>
+              <Box sx={{ flexGrow: 0 }}>
+                <Tooltip title="Open settings">
+                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}></IconButton>
+                </Tooltip>
+                {user ? <>
+                  <Button  >
+                    <Typography color="white">{user.email}</Typography>
+                  </Button>
+                  <Button variant="contained" color="primary" onClick={logout} sx={{ mx: 3 }}>
+                    Sing Out
+                  </Button>
+                </> : <Link href={'/signIn'}>
+                  <Button variant="contained" color="primary" sx={{ mx: 3 }}>
+                    Sing In
+                  </Button>
+                </Link>}
+
+                <Menu
+                  sx={{ mt: "45px" }}
+                  id="menu-appbar"
+                  anchorEl={anchorElUser}
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseUserMenu}
+                >
+                  {settings.map((setting) => (
+                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                      <Typography textAlign="center">{setting}</Typography>
+                    </MenuItem>
+                  ))}
+                </Menu>
+
+
               </Box>
             </Toolbar>
           </Container>

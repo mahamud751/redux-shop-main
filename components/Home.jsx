@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid'
 import { Box, CardMedia } from '@mui/material'
 
 const Home = () => {
+
     return (
 
         <Box sx={{ marginTop: '40px' }}>
@@ -26,3 +27,4 @@ const Home = () => {
 }
 
 export default Home
+

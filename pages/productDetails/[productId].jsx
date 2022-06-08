@@ -170,21 +170,21 @@ const ProductDetails = () => {
                             <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
                               {product.name}
                             </Typography>
-                            <Typography variant="h5" component="div">
+                            {/* <Typography variant="h5" component="div">
                               {product.price}
-                            </Typography>
+                            </Typography> */}
 
                             <Typography variant="body2">{product.somedata}</Typography>
                           </CardContent>
                         </Box>
                         <Box sx={{ display: "flex", justifyContent: "center", margin: "10px" }}>
-                          <Button
+                          {/* <Button
                             size="large"
                             sx={{ display: "flex", justifyContent: "between", backgroundColor: `${color}`, color: "black", width: "230px" }}
                             onClick={() => handleAddItem(product)}
                           >
                             Buy Now
-                          </Button>
+                          </Button> */}
                         </Box>
                       </Card>
                     </Grid>

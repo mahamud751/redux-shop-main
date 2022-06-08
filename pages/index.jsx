@@ -1,6 +1,7 @@
 import { Box, Button, Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import { deepOrange } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";
+import axios from "axios";
 import Link from "next/link";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -71,6 +72,7 @@ export default function Index({ data }) {
       <Header />
       <Grid container spacing={3}>
         <Grid item xs={12} md={12} lg={3}>
+
           <Box sx={{ marginTop: "70px", padding: "10px" }}>
             <nav className="mt-2">
               <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -222,8 +224,8 @@ export default function Index({ data }) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch("https://floating-plateau-70387.herokuapp.com/products");
-  const data = await res.json();
+  const { data } = await axios.get("https://floating-plateau-70387.herokuapp.com/products");
+
 
   return {
     props: {
