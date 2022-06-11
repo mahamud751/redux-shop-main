@@ -28,7 +28,6 @@ const Navbar = () => {
 
   const logout = () => {
     signOut(auth);
-
   };
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -233,9 +232,19 @@ const Navbar = () => {
                         );
                       })}
                       <p>Total:{price}</p>
-                      <Link href={'/checkout'}>
-                        <button>Checkout</button>
-                      </Link>
+                      {user ? (
+                        <Link href={"/checkout"}>
+                          <Button variant="contained" color="primary" fullWidth>
+                            Checkout
+                          </Button>
+                        </Link>
+                      ) : (
+                        <Link href={"/login"}>
+                          <Button variant="contained" color="primary" fullWidth>
+                            Checkout
+                          </Button>
+                        </Link>
+                      )}
                     </div>
                   ) : (
                     <div>
@@ -249,18 +258,22 @@ const Navbar = () => {
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}></IconButton>
                 </Tooltip>
-                {user ? <>
-                  <Button  >
-                    <Typography color="white">{user.email}</Typography>
-                  </Button>
-                  <Button variant="contained" color="primary" onClick={logout} sx={{ mx: 3 }}>
-                    Sing Out
-                  </Button>
-                </> : <Link href={'/signIn'}>
-                  <Button variant="contained" color="primary" sx={{ mx: 3 }}>
-                    Sing In
-                  </Button>
-                </Link>}
+                {user ? (
+                  <>
+                    <Button sx={{ marginLeft: 5 }}>
+                      <Typography color="white">{user.displayName}</Typography>
+                    </Button>
+                    <Button variant="contained" color="primary" onClick={logout} sx={{ mx: 3 }}>
+                      Sing Out
+                    </Button>
+                  </>
+                ) : (
+                  <Link href={"/login"}>
+                    <Button variant="contained" color="primary" sx={{ mx: 3 }}>
+                      Sing In
+                    </Button>
+                  </Link>
+                )}
 
                 <Menu
                   sx={{ mt: "45px" }}
@@ -284,8 +297,6 @@ const Navbar = () => {
                     </MenuItem>
                   ))}
                 </Menu>
-
-
               </Box>
             </Toolbar>
           </Container>
