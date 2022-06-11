@@ -192,7 +192,7 @@ export default function Index({ data }) {
                             <Typography sx={{ fontSize: 24 }} color="text.secondary" gutterBottom>
                               {product.name}
                             </Typography>
-                            <Typography variant="h5" component="div">
+                            <Typography variant="h4" component="div">
                               {product.price}
                             </Typography>
 
