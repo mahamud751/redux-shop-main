@@ -24,7 +24,7 @@ const RedditTextField = styled((props) => <TextField InputProps={{ disableUnderl
 }));
 
 const Checkout = () => {
-  const [user] = useAuthState(auth);
+  const { user } = useAuthState(auth);
   const initialInfo = { patientName: user.displayName, email: user.email, phone: "", address: "" };
   const getState = useSelector((state) => state.cartReducer.cart);
 
