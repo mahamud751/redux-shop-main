@@ -24,8 +24,8 @@ const RedditTextField = styled((props) => <TextField InputProps={{ disableUnderl
 }));
 
 const Checkout = () => {
-  const { user } = useAuthState(auth);
-  const initialInfo = { patientName: user.displayName, email: user.email, phone: "", address: "" };
+  const [user] = useAuthState(auth);
+  const initialInfo = { patientName: "", email: "", phone: "", address: "" };
   const getState = useSelector((state) => state.cartReducer.cart);
 
   const [bookingInfo, setBookingInfo] = useState(initialInfo);
@@ -73,14 +73,7 @@ const Checkout = () => {
               Name
             </InputLabel>
 
-            <RedditTextField
-              id="outlined-basic"
-              sx={{ width: "90%", m: 1 }}
-              name="patientName"
-              onBlur={handleOnBlur}
-              defaultValue={user.displayName}
-              variant="filled"
-            />
+            <RedditTextField id="outlined-basic" sx={{ width: "90%", m: 1 }} name="patientName" onBlur={handleOnBlur} defaultValue={""} variant="filled" />
 
             <InputLabel shrink htmlFor="bootstrap-input">
               Email
@@ -90,7 +83,7 @@ const Checkout = () => {
               sx={{ width: "90%", m: 1 }}
               name="email"
               onBlur={handleOnBlur}
-              defaultValue={user.email}
+              defaultValue={""}
               size="small"
               variant="filled"
             />
